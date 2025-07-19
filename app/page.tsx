@@ -4,12 +4,12 @@ import DesktopApp from "@/components/core-ui/desktop-app";
 import MobileApp from "@/components/core-ui/mobile-app";
 
 import { 
-  type CircleProps, 
+  type CircleProps,
   type FontOption, 
   FONTS, 
   INITIAL_BACKGROUND_COLORS, 
   INITIAL_COLORS, 
-  NOISE_SVG_PATTERNS, 
+  FILTER_SVG_PATTERNS, 
   RESOLUTIONS } from "@/lib/constants";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -29,6 +29,7 @@ import { toPng } from "html-to-image";
    const [previousCircles, setPreviousCircles] = useState<CircleProps[]>([]);
    const [text, setText] = useState("MOHIT.");
    const [fontSize, setFontSize] = useState(36);
+   const [blur, setBlur] = useState(200);
    const [fontWeight, setFontWeight] = useState(800);
    const [letterSpacing, setLetterSpacing] = useState(-0.02);
    const [opacity, setOpacity] = useState(100);
@@ -36,12 +37,13 @@ import { toPng } from "html-to-image";
    const [activeTab, setActiveTab] = useState<"colors" | "text" | "effects">(
      "text"
    );
-   const [noiseIntensity, setNoiseIntensity] = useState(0);
+   const [filterIntensity, setFilterIntensity] = useState(0);
    const [backgroundColor, setBackgroundColor] = useState("#ffffff");
    const [lineHeight, setLineHeight] = useState(1.2);
    const [textColor, setTextColor] = useState("#ffffff");
-
-   const [noiseType, setNoiseType] = useState<"original" | "film">("original");
+   const [filterType, setFilterType] = useState<
+    "pastel" | "film" | "grain" | "static"
+    >("pastel");
    const [activeColorPicker, setActiveColorPicker] = useState<string>(textColor);
    const [activeColorType, setActiveColorType] = useState<
      "text" | "background" | "gradient"
@@ -57,15 +59,15 @@ import { toPng } from "html-to-image";
 
    const svgToBase64 = (svg: string) => `data:image/svg+xml;base64,${btoa(svg)}`;
 
-   const noiseStyle = {
+   const  filterStyle = {
      position: "absolute",
      top: 0,
      left: 0,
      width: "100%",
      height: "100%",
-     backgroundImage: `url("${svgToBase64(NOISE_SVG_PATTERNS[noiseType])}")`,
-     opacity: noiseIntensity / 100,
-     mixBlendMode: noiseType === "film" ? "multiply" : "soft-light",
+     backgroundImage: `url("${svgToBase64(FILTER_SVG_PATTERNS[filterType])}")`,
+     opacity: filterIntensity / 100,
+     mixBlendMode: filterType === "film" ? "multiply" : "soft-light",
      pointerEvents: "none",
  } as const;
 
@@ -90,19 +92,7 @@ import { toPng } from "html-to-image";
    }, [fontFamily]);
 
    if (!isCompatibleBrowser) {
-     return (
-       <main className="h-screen flex items-center justify-center p-4">
-         <div className="max-w-lg text-center flex flex-col items-center justify-center gap-4">
-           <h1 className="text-4xl font-bold tracking-tighter">
-             Coming Soon to your browser!
-           </h1>
-           <p className="text-secondary-foreground font-medium">
-             Sorry, this app is only compatible with Chrome and Chromium-based
-             browsers at this time.
-           </p>
-         </div>
-       </main>
-     );
+     return <MobileApp />;
    }
 
    const updateColor = (newColor: string, index: number) => {
@@ -171,9 +161,16 @@ import { toPng } from "html-to-image";
        );
 
        // Randomize noise settings
-       setNoiseIntensity(Math.floor(Math.random() * (100 - 30) + 30));
-       const noiseTypes: ("original" | "film")[] = ["original", "film"];
-       setNoiseType(noiseTypes[Math.floor(Math.random() * noiseTypes.length)]);
+       setFilterIntensity(Math.floor(Math.random() * (100 - 30) + 30));
+       const filterTypes: ("pastel" | "film" | "grain" | "static")[] = [
+        "pastel",
+        "film",
+        "grain",
+        "static"
+       ];
+       setFilterType(
+        filterTypes[Math.floor(Math.random() * filterTypes.length)]
+      );
 
        // Randomize background color
        const randomColor =
@@ -231,6 +228,8 @@ import { toPng } from "html-to-image";
        <div className="hidden md:block">
          <DesktopApp
            backgroundColor={backgroundColor}
+           blur={blur}
+           setBlur={setBlur}
            activeTab={activeTab}
            fontSize={fontSize}
            fontWeight={fontWeight}
@@ -240,8 +239,8 @@ import { toPng } from "html-to-image";
            lineHeight={lineHeight}
            text={text}
            circles={circles}
-           noiseIntensity={noiseIntensity}
-           noiseStyle={noiseStyle}
+           filterIntensity={filterIntensity}
+           filterStyle={filterStyle}
            textColor={textColor}
            generateNewPalette={generateNewPalette}
            isGenerating={isGenerating}
@@ -249,9 +248,9 @@ import { toPng } from "html-to-image";
            isDownloading={isDownloading}
            fonts={fonts}
            activeColorPicker={activeColorPicker}
-           noiseType={noiseType}
-           setNoiseIntensity={setNoiseIntensity}
-           setNoiseType={setNoiseType}
+           filterType={filterType}
+           setFilterIntensity={setFilterIntensity}
+           setFilterType={setFilterType}
            setTextColor={setTextColor}
            setText={setText}
            setFontFamily={setFontFamily}
