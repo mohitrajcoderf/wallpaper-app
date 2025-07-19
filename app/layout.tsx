@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata = {
-  title: "Create Your Own Wallpapers - Gradiiii",
+  title: "Gradiiii - Generate your own gradient wallpapers",
   description:
     "A simple gradient genrator for your walls. Add your own colors or use one of our presets. Text are also supported.",
   metadataBase: new URL("https://gradiiii.vercel.app/"),
@@ -22,7 +22,7 @@ export const metadata = {
     type: "website",
     locale: "en_US",
     url: "https://gradiiii.vercel.app/",
-    title: "Create your own gradient wallpaper - Gradiiii",
+    title: "Gradiiii - Generate your own gradient wallpapers",
     description:
       "A simple gradient generator for your wallpaper. Add your own colors or use one of our presets. Texts are also supported.",
     siteName: "Gradiiii",
@@ -37,7 +37,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Create your own gradient wallpapers - Gradiiii",
+    title: "Gradiiii - Generate your own gradient wallpapers",
     description:
       "A simple gradient generator for your wallpaper. Add your own colors or use one of our presets. Texts are also supported.",
     creator: "@MohitRaj",
