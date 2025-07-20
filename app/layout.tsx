@@ -56,6 +56,22 @@ export const metadata = {
   },
 };
 
+export const viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ]
+};
+
+export const links = [
+  {
+    rel: "preload",
+    href: "/logo.svg",
+    as: "image",
+    type: "image/svg+xml",
+  },
+];
+
 export default function RootLayout({
   children,
 }: {
@@ -67,10 +83,10 @@ export default function RootLayout({
         className={`${onset.variable} antialiased min-h-screen bg-background`}
       >
         <ThemeProvider
-        attribute="class"
-        defaultTheme="system"
-        enableSystem
-        disableTransitionOnChange
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
         >
           {children}
           <Toaster />

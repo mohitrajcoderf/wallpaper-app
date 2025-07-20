@@ -1,34 +1,81 @@
-# Project-01
+# Gradiiii
 
-Create beutiful gradient wallpaper with customizable colors, text, and effects. Built with Next.js 15, TypeScript, and Tailwind CSS.
+Create beutiful gradient wallpapers with customizable colors, text, and effects. Built with Next.js 15, TypeScript, and Tailwind CSS.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Core Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 🎨 Create custom gradients with up to 8 colors
+- 📝 Advanced text customization with 6 premium fonts
+- 🌫️ 4 filter types (Pastel, Film Grain, Grain, Static)
+- 🎚️ Color adjustments (saturation, contrast, brightness)
+- 🔍 Resolution support up to 4K
+- 💾 High-quality downloads
+- ↩️ Undo/redo support
+- ⚡ Optimized performance
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Text Features
 
-## Learn More
+- 6 premium fonts (Onest, Bricolage, Space Mono, Space Grotesk, Manrope, Poppins)
+- Variable font weight support
+- Advanced text positioning
+- Letter spacing & line height controls
+- Text opacity control
 
-To learn more about Next.js, take a look at the following resources:
+### Effects & Filters
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Up to 8 gradient colors
+- 4 filter types (Pastel, Film Grain, Grain, Static)
+- Blur intensity control
+- Saturation, contrast & brightness adjustments
+- Background color customization
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Resolution Support
 
-## Deploy on Vercel
+- 1080p (1920x1080)
+- 2K (2560x1440)
+- 4K (3840x2160)
+- 8K (coming soon)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Tech Stack
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Next.js 15
+- TypeScript
+- Tailwind CSS
+- Radix UI
+- Motion One
+- HTML-to-Image
+
+## Known Limitations
+
+- Currently supports Chromium-based browsers only
+- Desktop-only support
+- Mobile & Firefox support coming in v0.3
+
+
+## Changelog (v0.2)
+
+### Added
+
+- Complete UI rewrite
+- Motion animations with Motion
+- New gradient generation system
+- 4 filter types with SVG patterns
+- Text customization (6 fonts, variable weights)
+- Color adjustment controls
+- Resolution scale switching
+- Undo/redo for gradient changes
+- Blur intensity controls
+- Performance optimizations for large resolutions
+- Mobile detection & fallback UI
+
+### Removed
+
+- Old CSS-based gradient system
+- Basic text controls
+- Fixed resolution output
+
+## Feedback & Support
+
+Found a bug or have feedback? Feel free to [DM me on X](https://x.com/MohitRaj_IN).
