@@ -672,7 +672,7 @@ export default function DesktopApp({
                                 }}
                             />
                             <p
-                                className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2  z-50 px-8 right-1/2`}
+                                className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2  z-50 px-8 right-1/2 w-full`}
                                 style={{
                                     fontSize: `${(fontSize * resolution.width) / 1920}px`,
                                     fontWeight,
@@ -680,15 +680,14 @@ export default function DesktopApp({
                                         }em`,
                                     fontFamily,
                                     opacity: opacity / 100,
-                                    lineHeight: `${(lineHeight * resolution.width) / 1920}px`,
+                                    lineHeight: `${(lineHeight * resolution.width) / 1920}em`,
                                     color: textColor,
-                                    maxWidth: "90%",
-                                    width: "fit-content",
-                                    margin: "0",
+                                    textAlign: "center",
                                 }}
                             >
                                 {text}
                             </p>
+                            
                             <svg className="w-full h-full">
                                 {circles.map((circle, i) => (
                                     <circle

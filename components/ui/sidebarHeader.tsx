@@ -186,6 +186,7 @@ export function SidebarHeader() {
                             <li>Performance optimizations for large resolutions</li>
                         </ul>
                     </section>
+
                     <div className="bg-muted/50 p-4 rounded-lg">
                         <p className="text-sm text-muted-foreground">
                             <span className="font-semibold">Note:</span> Gradii is currently
@@ -198,7 +199,7 @@ export function SidebarHeader() {
                     <p className="text-sm text-muted-foreground mx-auto">
                         Found a bug or have feedback? Feel free to{" "}
                         <Link
-                            href="https://x.com/mohitraj2546"
+                            href="https://x.com/MohitRaj_IN"
                             target="_blank"
                             className="text-primary hover:underline"
                         >
