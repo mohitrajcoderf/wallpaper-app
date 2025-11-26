@@ -68,65 +68,64 @@ export const FONTS: FontOption[] = [
 
 export const FILTER_SVG_PATTERNS = {
   pastel: `
-      <svg viewBox="0 0 200 200" xmlns='http://www.w3.org/2000/svg'>
-        <filter id='noiseFilter'>
-          <feTurbulence 
-            type='fractalNoise' 
-            baseFrequency='1.5' 
-            numOctaves='3' 
-            stitchTiles='stitch'/>
-          <feColorMatrix type="saturate" values="0"/>
-          <feBlend mode='overlay' in2='SourceGraphic'/>
-        </filter>
-        <rect width='100%' height='100%' filter='url(#noiseFilter)'/>
-      </svg>
-    `,
-  film: `
-      <svg viewBox="0 0 200 200" xmlns='http://www.w3.org/2000/svg'>
-        <filter id='noiseFilter'>
-          <feTurbulence 
-            type='fractalNoise' 
-            baseFrequency='1.2' 
-            numOctaves='3' 
-            seed='2'
-            stitchTiles='stitch'/>
-          <feColorMatrix type="saturate" values="0"/>
-          <feComponentTransfer>
-            <feFuncR type="discrete" tableValues="0 .01 .02 .03 .04 .05 .06 .07 .08 .09 1"/>
-            <feFuncG type="discrete" tableValues="0 .01 .02 .03 .04 .05 .06 .07 .08 .09 1"/>
-            <feFuncB type="discrete" tableValues="0 .01 .02 .03 .04 .05 .06 .07 .08 .09 1"/>
-          </feComponentTransfer>
-        </filter>
-        <rect width='100%' height='100%' filter='url(#noiseFilter)'/>
-      </svg>
-    `,
-  grain: `
-      <svg viewBox="0 0 200 200" xmlns='http://www.w3.org/2000/svg'>
-        <filter id='noiseFilter'>
-          <feTubulence
-            type='turbulence'
-            baseFrequency='0.8'
-            numOctaves='4'
-            seed='5'
-            stichTiles='stich'
-          />
-          <feColorMatrix type="saturate" values="0"/>
-          <feComponentTransfer>
-            <feFuncR type="gamma" amplitude="0.8" exponent="1"/>
-            <feFuncG type="gamma" amplitude="0.8" exponent="1"/>
-            <feFuncB type="gamma" amplitude="0.8" exponent="1"/>
-          </feComponentTransfer>
-        </filter>
-        <rect width='100%' height='100%' filter='url(#noiseFilter)'/>
-      </svg>
-    `,
-  static: `
-       <svg viewBox="0 0 200 200" xmlns='http://www.w3.org/2000/svg'>
+    <svg viewBox="0 0 200 200" xmlns='http://www.w3.org/2000/svg'>
       <filter id='noiseFilter'>
-        <feTurbulence
-          type='fractalNoise'
-          baseFrequency='2'
-          numOctaves='5'
+        <feTurbulence 
+          type='fractalNoise' 
+          baseFrequency='1.5' 
+          numOctaves='3' 
+          stitchTiles='stitch'/>
+        <feColorMatrix type="saturate" values="0"/>
+        <feBlend mode='overlay' in2='SourceGraphic'/>
+      </filter>
+      <rect width='100%' height='100%' filter='url(#noiseFilter)'/>
+    </svg>
+  `,
+  film: `
+    <svg viewBox="0 0 200 200" xmlns='http://www.w3.org/2000/svg'>
+      <filter id='noiseFilter'>
+        <feTurbulence 
+          type='fractalNoise' 
+          baseFrequency='1.2' 
+          numOctaves='3' 
+          seed='2'
+          stitchTiles='stitch'/>
+        <feColorMatrix type="saturate" values="0"/>
+        <feComponentTransfer>
+          <feFuncR type="discrete" tableValues="0 .01 .02 .03 .04 .05 .06 .07 .08 .09 1"/>
+          <feFuncG type="discrete" tableValues="0 .01 .02 .03 .04 .05 .06 .07 .08 .09 1"/>
+          <feFuncB type="discrete" tableValues="0 .01 .02 .03 .04 .05 .06 .07 .08 .09 1"/>
+        </feComponentTransfer>
+      </filter>
+      <rect width='100%' height='100%' filter='url(#noiseFilter)'/>
+    </svg>
+  `,
+  grain: `
+    <svg viewBox="0 0 200 200" xmlns='http://www.w3.org/2000/svg'>
+      <filter id='noiseFilter'>
+        <feTurbulence 
+          type='turbulence' 
+          baseFrequency='0.8' 
+          numOctaves='4' 
+          seed='5'
+          stitchTiles='stitch'/>
+        <feColorMatrix type="saturate" values="0"/>
+        <feComponentTransfer>
+          <feFuncR type="gamma" amplitude="0.8" exponent="1"/>
+          <feFuncG type="gamma" amplitude="0.8" exponent="1"/>
+          <feFuncB type="gamma" amplitude="0.8" exponent="1"/>
+        </feComponentTransfer>
+      </filter>
+      <rect width='100%' height='100%' filter='url(#noiseFilter)'/>
+    </svg>
+  `,
+  static: `
+    <svg viewBox="0 0 200 200" xmlns='http://www.w3.org/2000/svg'>
+      <filter id='noiseFilter'>
+        <feTurbulence 
+          type='fractalNoise' 
+          baseFrequency='2' 
+          numOctaves='5' 
           seed='10'
           stitchTiles='stitch'/>
         <feColorMatrix type="saturate" values="0"/>
@@ -134,7 +133,7 @@ export const FILTER_SVG_PATTERNS = {
       </filter>
       <rect width='100%' height='100%' filter='url(#noiseFilter)'/>
     </svg>
-    `,
+  `,
 } as const;
 
 export const RESOLUTIONS = [
