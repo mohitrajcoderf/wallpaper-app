@@ -53,10 +53,31 @@ Create beutiful gradient wallpapers with customizable colors, text, and effects.
 - Desktop-only support
 - Mobile & Firefox support coming in v0.3
 
+## Development
 
-## Changelog (v0.2)
+```bash
+git clone https://github.com/yourusername/wallpaper-app.git
+cd wallpaper-app
+bun install
+bun dev
+```
 
-### Added
+Open [http://localhost:3000](http://localhost:3000) to start creating.
+
+## Changelog
+
+### v0.3 ALPHA
+
+- Multiple aspect ratio support (Desktop, Mobile, Square)
+- Background image upload with filters
+- Advanced image adjustments (Saturation, Contrast, Brightness)
+- Safari browser compatibility
+- Improved color picker with hex input
+- Added more fonts to select from
+- Text decoration support (Underline, Strikethrough)
+- Performance improvements
+
+### v0.2 ALPHA
 
 - Complete UI rewrite
 - Motion animations with Motion
@@ -79,3 +100,30 @@ Create beutiful gradient wallpapers with customizable colors, text, and effects.
 ## Feedback & Support
 
 Found a bug or have feedback? Feel free to [DM me on X](https://x.com/MohitRaj_IN).
+
+---
+
+# Gradiiii
+
+Gradiiii is a powerful web-based gradient wallpaper generator that solves the problem of creating unique, high-quality wallpapers with precise control over every aspect of the design. Built for designers, developers, and creative professionals who want to create custom wallpapers without dealing with complex design software.
+
+## What It Does
+
+- Creates stunning gradient wallpapers with up to 8 color stops
+- Offers advanced text overlays with premium fonts and complete typographic control
+- Provides professional-grade filters and effects (Film Grain, Noise, Static, etc.)
+- Supports multiple resolutions up to 4K
+- Includes image adjustments like saturation, contrast, and brightness
+- Features undo/redo support for design iterations
+- Exports high-quality PNG files
+
+## Who It's For
+
+- Designers who need quick, custom wallpapers for presentations or mockups
+- Developers looking for unique backgrounds for their applications
+- Content creators wanting branded visual assets
+- Anyone who wants professional-looking wallpapers without learning complex design tools
+
+## Why It's Different
+
+Unlike traditional wallpaper generators, Gradiiii provides granular control over every aspect of the design while maintaining a clean, intuitive interface. It combines the power of professional design tools with the simplicity of a web application, making it possible to create production-ready wallpapers in seconds rather than minutes or hours.

@@ -1,10 +1,14 @@
-import { 
-    Bricolage_Grotesque, 
-    Space_Mono, 
-    Manrope, 
-    Poppins, 
-    Onest, 
-    Space_Grotesk
+import {
+    Bricolage_Grotesque,
+    Space_Mono,
+    Manrope,
+    Poppins,
+    Onest,
+    Space_Grotesk,
+    Instrument_Serif,
+    Inter,
+    DM_Serif_Display,
+    Lora,
 } from "next/font/google";
 
 export const bricolage = Bricolage_Grotesque({
@@ -37,4 +41,27 @@ export const onset = Onest({
 export const spaceGrotesk = Space_Grotesk({
     subsets: ["latin"],
     variable: "--font-space-grotesk",
+});
+
+export const instrumentSerif = Instrument_Serif({
+    weight: ["400"],
+    subsets: ["latin"],
+    variable: "--font-instrument-serif",
+});
+
+export const inter = Inter({
+    subsets: ["latin"],
+    variable: "--font-inter",
+});
+
+export const dmSerifDisplay = DM_Serif_Display({
+    subsets: ["latin"],
+    variable: "--font-dm-serif-display",
+    weight: ["400"],
+});
+
+export const lora = Lora({
+    subsets: ["latin"],
+    variable: "--font-lora",
+    weight: ["400", "500", "600", "700"],
 });

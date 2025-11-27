@@ -55,6 +55,9 @@ export default function Home() {
   const [contrast, setContrast] = useState(100);
   const [brightness, setBrightness] = useState(100);
   const [backgroundImage, setBackgroundImage] = useState<string | null>(null);
+  const [isItalic, setIsItalic] = useState(false);
+  const [isUnderline, setIsUnderline] = useState(false);
+  const [isStrikethrough, setIsStrikethrough] = useState(false);
 
   const fonts: FontOption[] = FONTS;
 
@@ -106,32 +109,17 @@ export default function Home() {
 
     setIsDownloading(true);
     try {
-      // Store original styles
+      // Store all original styles
+      const svgElement = wallpaper.querySelector("svg");
+      const originalSvgStyle = svgElement?.getAttribute("style");
       const originalTransform = wallpaper.style.transform;
       const originalWidth = wallpaper.style.width;
       const originalHeight = wallpaper.style.height;
 
-      // Reset transform and set exact dimensions
+      // Set download styles
       wallpaper.style.transform = "none";
       wallpaper.style.width = `${resolution.width}px`;
       wallpaper.style.height = `${resolution.height}px`;
-
-      // Scale text and effects based on resolution
-      const scaleFactor = resolution.width / 1920;
-      const textElements = wallpaper.getElementsByTagName("p");
-      const svgElements = wallpaper.getElementsByTagName("circle");
-
-      // Scale text
-      for (const text of textElements) {
-        text.style.fontSize = `${fontSize * scaleFactor}px`;
-        text.style.letterSpacing = `${letterSpacing * scaleFactor}em`;
-        text.style.lineHeight = `${lineHeight * scaleFactor}`;
-      }
-
-      // Scale blur for circles
-      for (const circle of svgElements) {
-        circle.style.filter = `blur(${blur * scaleFactor}px)`;
-      }
 
       const dataUrl = await toPng(wallpaper, {
         width: resolution.width,
@@ -143,25 +131,28 @@ export default function Home() {
         },
       });
 
-      // Restore original styles
+      // Restore all original styles
       wallpaper.style.transform = originalTransform;
       wallpaper.style.width = originalWidth;
       wallpaper.style.height = originalHeight;
-
-      // Reset text and circle scaling
-      for (const text of textElements) {
-        text.style.fontSize = `${fontSize}px`;
-        text.style.letterSpacing = `${letterSpacing}em`;
-        text.style.lineHeight = `${lineHeight}`;
-      }
-      for (const circle of svgElements) {
-        circle.style.filter = `blur(${blur}px)`;
+      if (svgElement && originalSvgStyle) {
+        svgElement.setAttribute("style", originalSvgStyle);
       }
 
       const link = document.createElement("a");
-      link.download = `gradient-circles-${resolution.width}x${resolution.height}.png`;
+      link.download = `gradiiii-${resolution.width}x${resolution.height}.png`;
       link.href = dataUrl;
-      link.click();
+      
+      const downloadPromise = new Promise((resolve) => {
+        link.click();
+        resolve(true);
+      });
+
+      toast.promise(downloadPromise, {
+        loading: "Downloading image...",
+        success: "Downloaded image successfully",
+        error: "Failed to downlaod image",
+      });
     } catch (err) {
       console.error(err);
       toast.error("Failed to download image");
@@ -266,16 +257,21 @@ export default function Home() {
     };
 
     reader.onloadend = () => {
-      // Preload image to ensure it loads properly
-      const img = new Image();
-      img.onload = () => {
-        setBackgroundImage(reader.result as string);
-        toast.success("Image uploaded successfully");
-      };
-      img.onerror = () => {
-        toast.error("Failed to load image");
-      };
-      img.src = reader.result as string;
+      const loadPromise = new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => {
+          setBackgroundImage(reader.result as string);
+          resolve(true);
+        };
+        img.onerror = reject;
+        img.src = reader.result as string;
+      });
+
+      toast.promise(loadPromise, {
+        loading: "Loading image...",
+        success: "Image uploaded successfully",
+        error: "Failed to load image",
+      });
     };
 
     reader.readAsDataURL(file);
@@ -341,6 +337,12 @@ export default function Home() {
           backgroundImage={backgroundImage}
           handleImageUpload={handleImageUpload}
           setBackgroundImage={setBackgroundImage}
+          isItalic={isItalic}
+          setIsItalic={setIsItalic}
+          isUnderline={isUnderline}
+          setIsUnderline={setIsUnderline}
+          isStrikethrough={isStrikethrough}
+          setIsStrikethrough={setIsStrikethrough}
         />
       </div>
     </>
